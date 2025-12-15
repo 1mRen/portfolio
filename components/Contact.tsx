@@ -211,7 +211,7 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200">
-              Let's Connect
+              Let&apos;s Connect
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
               Feel free to reach out if you&apos;re looking for a developer, have a
