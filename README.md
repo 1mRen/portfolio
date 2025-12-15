@@ -104,9 +104,37 @@ npm start
 
 ## Deployment
 
-This portfolio can be easily deployed on:
+### Deploy to Vercel (Recommended)
 
-- [Vercel](https://vercel.com) (recommended for Next.js)
+1. **Push your code to GitHub**:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
+   git push -u origin main
+   ```
+
+2. **Deploy on Vercel**:
+   - Go to [vercel.com](https://vercel.com) and sign in
+   - Click "Add New Project"
+   - Import your GitHub repository
+   - Vercel will auto-detect Next.js settings
+   - Click "Deploy"
+
+3. **Add Environment Variables** (if using Nodemailer):
+   - Go to Project Settings → Environment Variables
+   - Add: `EMAIL_USER`, `EMAIL_PASSWORD`, `RECIPIENT_EMAIL`
+   - Redeploy after adding variables
+
+Your site will be live at `https://your-project.vercel.app`
+
+For detailed instructions, see [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md)
+
+### Other Platforms
+
+This portfolio can also be deployed on:
+
 - [Netlify](https://netlify.com)
 - Any platform that supports Node.js
 
