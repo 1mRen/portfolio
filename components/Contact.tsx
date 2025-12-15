@@ -199,7 +199,7 @@ const Contact = () => {
           </h2>
           <div className="w-24 h-1 bg-primary-500 mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or
+            I&apos;m always open to discussing new projects, creative ideas, or
             opportunities to be part of your visions.
           </p>
         </motion.div>
@@ -214,7 +214,7 @@ const Contact = () => {
               Let's Connect
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
-              Feel free to reach out if you're looking for a developer, have a
+              Feel free to reach out if you&apos;re looking for a developer, have a
               question, or just want to connect.
             </p>
 

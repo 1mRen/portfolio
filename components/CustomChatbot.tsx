@@ -186,7 +186,7 @@ const CustomChatbot = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold">AI Assistant</h3>
-                  <p className="text-xs text-white/80">Ask me about Marc's portfolio</p>
+                  <p className="text-xs text-white/80">Ask me about Marc&apos;s portfolio</p>
                 </div>
               </div>
             </div>

@@ -64,7 +64,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            "A hardworking and adaptable individual with a strong problem-solving mindset, dedicated to creating efficient and innovative solutions."
+            &quot;A hardworking and adaptable individual with a strong problem-solving mindset, dedicated to creating efficient and innovative solutions.&quot;
           </motion.p>
 
           <motion.p
