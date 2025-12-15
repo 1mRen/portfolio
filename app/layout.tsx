@@ -13,6 +13,11 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: 'Marc Lawrence Magadan | IT Student & Aspiring Software Developer',
   description: 'Portfolio of Marc Lawrence Magadan - IT Student at University of Cebu, specializing in software development, automation, and innovative solutions',
+  icons: {
+    icon: '/LOGO.ico',
+    shortcut: '/LOGO.ico',
+    apple: '/LOGO.png',
+  },
 }
 
 export default function RootLayout({

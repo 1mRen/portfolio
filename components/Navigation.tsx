@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -40,9 +41,17 @@ const Navigation = () => {
           <div className="flex-shrink-0">
             <a
               href="#home"
-              className="text-2xl font-serif font-bold text-primary-500"
+              className="flex items-center gap-3 text-2xl font-serif font-bold text-primary-500"
             >
-              Marc Lawrence Magadan
+              <Image
+                src="/LOGO.png"
+                alt="Logo"
+                width={40}
+                height={40}
+                className="object-contain"
+              />
+              <span className="hidden sm:inline">Marc Lawrence Magadan</span>
+              <span className="sm:hidden">MLM</span>
             </a>
           </div>
 
