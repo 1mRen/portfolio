@@ -10,6 +10,16 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'Transportation Management System',
+      description:
+        'A streamlined Admin-Only Transportation Management System built with Next.js 14+ and Supabase. Features secure authentication, role-based access control (supervisor/admin), vehicle and driver management, reservation scheduling with availability checking, automated trip ticket generation, and comprehensive inventory tracking with low stock alerts.',
+      technologies: ['Next.js 14+', 'TypeScript', 'Supabase', 'Tailwind CSS', 'PostgreSQL', 'Row Level Security'],
+      image: '🚗',
+      link: 'https://transpo-tms.vercel.app/login',
+      github: 'https://github.com/1mRen/Transportation',
+      featured: true,
+    },
+    {
       title: 'Transportation Service Management System',
       description:
         'A web-based system developed for Database Management Systems 2 (DBMS-2) subject. Streamlines the process of managing transportation service requests, schedules, and records. Features include service request tracking, admin dashboard, driver and vehicle management, and user authentication.',
@@ -17,7 +27,7 @@ const Projects = () => {
       image: '🚌',
       link: '#',
       github: 'https://github.com/1mRen/Transportation_Service_Mangement_Website',
-      featured: true,
+      featured: false,
     },
     {
       title: 'Home Subdivision Management System',
