@@ -26,6 +26,7 @@ const CustomChatbot = () => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const FLOWISE_API_URL = 'https://cloud.flowiseai.com/api/v1/prediction/6d3d4a28-fbf1-4a64-9e28-fb0820e56a8e'
+  const FLOWISE_API_KEY = process.env.NEXT_PUBLIC_FLOWISE_API_KEY
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -42,11 +43,18 @@ const CustomChatbot = () => {
   }, [isOpen])
 
   const query = async (data: { question: string; history?: any[] }) => {
+    const headers: HeadersInit = {
+      'Content-Type': 'application/json',
+    }
+    
+    // Add API key to headers if available
+    if (FLOWISE_API_KEY) {
+      headers['Authorization'] = `Bearer ${FLOWISE_API_KEY}`
+    }
+
     const response = await fetch(FLOWISE_API_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers,
       body: JSON.stringify(data),
     })
     const result = await response.json()
