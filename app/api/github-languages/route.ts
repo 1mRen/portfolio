@@ -23,9 +23,6 @@ function makeHeaders(): HeadersInit {
 export const runtime = 'nodejs'
 
 export async function GET(req: Request) {
-  const token = getToken()
-  console.log('[github-languages] token present:', !!token, token ? `(${token.slice(0, 8)}...)` : '')
-
   try {
     const { searchParams } = new URL(req.url)
     const username = (searchParams.get('username') || '1mRen').trim()
@@ -53,8 +50,6 @@ export async function GET(req: Request) {
       .filter((r) => !r.fork && !r.archived && !r.private)
       .slice(0, repoLimit)
 
-    console.log('[github-languages] eligible:', eligible.length, eligible.map((r) => r.name).join(', '))
-
     const langResults = await Promise.allSettled(
       eligible.map(async (repo) => {
         const [owner, repoName] = repo.full_name.split('/')
@@ -62,10 +57,7 @@ export async function GET(req: Request) {
           `${GH}/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repoName)}/languages`,
           { headers: makeHeaders(), cache: 'no-store' }
         )
-        if (!res.ok) {
-          console.warn(`[github-languages] ${repo.name} languages → ${res.status}`)
-          return {} as Record<string, number>
-        }
+        if (!res.ok) return {} as Record<string, number>
         return res.json() as Promise<Record<string, number>>
       })
     )
@@ -78,8 +70,6 @@ export async function GET(req: Request) {
         }
       }
     }
-
-    console.log('[github-languages] totals:', Object.keys(totals).join(', '))
 
     const totalBytes = Object.values(totals).reduce((a, b) => a + b, 0)
     const languages = Object.entries(totals)
@@ -100,10 +90,6 @@ export async function GET(req: Request) {
     })
   } catch (e) {
     const message = e instanceof Error ? e.message : String(e)
-    console.error('[github-languages] ERROR:', message)
-    return NextResponse.json(
-      { error: message, tokenLoaded: !!getToken(), cwd: process.cwd() },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: message }, { status: 500 })
   }
 }

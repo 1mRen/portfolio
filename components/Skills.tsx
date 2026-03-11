@@ -49,8 +49,6 @@ const Skills = () => {
   const [data, setData] = useState<GitHubLanguagesResponse | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
-  const [tokenLoaded, setTokenLoaded] = useState<boolean | null>(null)
-  const [errorCwd, setErrorCwd] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -59,14 +57,10 @@ const Skills = () => {
       try {
         setLoading(true)
         setError(null)
-        setTokenLoaded(null)
-        setErrorCwd(null)
         const res = await fetch('/api/github-languages?username=1mRen&repoLimit=30', { cache: 'no-store' })
         const json = await res.json()
         if (!res.ok) {
           const msg = (json && typeof json.error === 'string') ? json.error : `Failed to load (${res.status})`
-          if (!cancelled && typeof json.tokenLoaded === 'boolean') setTokenLoaded(json.tokenLoaded)
-          if (!cancelled && typeof json.cwd === 'string') setErrorCwd(json.cwd)
           throw new Error(msg)
         }
         if (!cancelled) setData(json as GitHubLanguagesResponse)
@@ -143,19 +137,6 @@ const Skills = () => {
           {error && (
             <div className="mb-6 rounded-lg border border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-900/20 p-4 text-sm text-red-700 dark:text-red-300">
               {error}
-              {tokenLoaded === false && (
-                <div className="text-xs text-red-600/80 dark:text-red-300/80 mt-2 font-medium">
-                  Server does not see GITHUB_TOKEN. Put it in <code className="bg-red-100 dark:bg-red-900/40 px-1 rounded">.env.local</code> in the project root (same folder as package.json), then restart the dev server.
-                  {errorCwd && (
-                    <div className="mt-1">Server running from: <code className="break-all">{errorCwd}</code></div>
-                  )}
-                </div>
-              )}
-              {tokenLoaded === true && (
-                <div className="text-xs text-red-600/80 dark:text-red-300/80 mt-1">
-                  Token is loaded. If this is a rate limit, wait ~1 hour or try again shortly.
-                </div>
-              )}
             </div>
           )}
 
