@@ -58,7 +58,7 @@ const Projects = () => {
         'A mobile-first boarding house rental and management platform connecting tenants and landlords. Built with React, TypeScript, Vite, Tailwind CSS, shadcn/ui, and powered by Supabase for authentication, database, and real-time features.',
       technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'shadcn/ui', 'Supabase'],
       image: '/boardingbuddy.png',
-      link: 'https://boardingbuddy-finder-app.lovable.app/',
+      link: 'https://boardingbuddy-finder-app.vercel.app/',
       featured: true,
     },
     {
