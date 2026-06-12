@@ -57,7 +57,7 @@ const About = () => {
             className="space-y-6"
           >
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-              I am an IT student at the University of Cebu and an aspiring software developer
+              I am an IT Graduate at the University of Cebu and an aspiring software developer
               with a passion for creating efficient and innovative solutions. My journey in
               technology has been driven by a strong problem-solving mindset and a dedication
               to continuous learning.
